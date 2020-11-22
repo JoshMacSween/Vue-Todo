@@ -3,7 +3,7 @@
     <h2>My Todo List</h2>
     <ul>
       <li v-bind:key="todo.id" v-for="todo in todos">
-        <todo v-bind:todo="todo" />
+        <todo v-bind:todo="todo" v-on:delete-todo="$emit('delete-todo', todo.id)"/>
       </li>
     </ul>
   </div>

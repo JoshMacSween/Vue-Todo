@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <todos :todos="todos" />
+    <todos :todos="todos" v-on:delete-todo="deleteTodo"/>
     <add-todo v-on:add-todo="addTodo" />
   </div>
 </template>
@@ -46,6 +46,9 @@ export default {
     addTodo(newTodoObj) {
       this.todos = [...this.todos, newTodoObj]
     },
+    deleteTodo(todoId) {
+      this.todos = this.todos.filter(todo => todo.id !== todoId)
+    }
   },
 }
 </script>
@@ -55,6 +58,6 @@ export default {
     font-family: Arial, Helvetica, sans-serif;
   }
   h1, h2, h3, h4, h5 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: Georgia, Times, serif;
   }
 </style>
